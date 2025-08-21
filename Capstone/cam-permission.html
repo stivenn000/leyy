@@ -42,6 +42,8 @@
         Grant Permission
       </button>
       <div class="permission-msg">Please grant permission to proceed.</div>
+      <!-- Bottom-left meters-away badge -->
+      <div id="distanceBadge" style="position: fixed; bottom: 12px; left: 12px; padding: 8px 12px; background: rgba(0,0,0,0.7); color: #fff; border-radius: 8px; font-size: 14px; z-index: 1002; display: none;">0 m away</div>
     </div>
   </div>
   
@@ -243,7 +245,7 @@
           <!-- GPS Camera with proper configuration -->
           <a-camera 
             id="arCamera"
-            gps-camera 
+            gps-camera="gpsTimeInterval: 3000; gpsMinDistance: 5" 
             rotation-reader
             gps-camera-rotation-reader
             gps-camera-position-reader
@@ -343,6 +345,14 @@
                 console.log('Updated distance element with:', distanceText);
               } else {
                 console.error('Distance element not found!');
+              }
+              
+              // Update bottom-left meters-away badge
+              const distanceBadge = document.querySelector('#distanceBadge');
+              if (distanceBadge) {
+                const metersAway = Math.round(distance * 1000);
+                distanceBadge.textContent = `${metersAway} m away`;
+                distanceBadge.style.display = 'block';
               }
               
 
