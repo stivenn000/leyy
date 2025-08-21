@@ -206,7 +206,7 @@
             height="0.5"
             depth="0.5"
             color="#FF0000"
-            gps-entity-place="latitude: 15.1366615; longitude: 120.5854674;"
+            gps-entity-place="latitude: 14.86668429080628; longitude: 120.83022710073395;"
             gps-entity-place-lock="true"
             material="shader: flat"
             animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"
@@ -215,12 +215,12 @@
           <!-- Distance display that follows the marker -->
           <a-text
             id="distanceText"
-            value="Calculating distance..."
+            value=""
             position="0 0.8 0"
             scale="0.4 0.4 0.4"
             color="#00FF00"
             align="center"
-            gps-entity-place="latitude: 15.1366615; longitude: 120.5854674;"
+            gps-entity-place="latitude: 14.86668429080628; longitude: 120.83022710073395;"
             gps-entity-place-lock="true"
             look-at="[gps-camera]"
             material="shader: flat"
@@ -233,7 +233,7 @@
             scale="0.3 0.3 0.3"
             color="#FFFFFF"
             align="center"
-            gps-entity-place="latitude: 15.1366615; longitude: 120.5854674;"
+            gps-entity-place="latitude: 14.86668429080628; longitude: 120.83022710073395;"
             gps-entity-place-lock="true"
             look-at="[gps-camera]"
             material="shader: flat"
@@ -265,8 +265,8 @@
 
     function startDistanceCalculation() {
       // Target coordinates
-      const targetLat = 15.1366615;
-      const targetLng = 120.5854674;
+      const targetLat = 14.86668429080628;
+      const targetLng = 120.83022710073395;
       
       console.log('Starting distance calculation to:', targetLat, targetLng);
       
