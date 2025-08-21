@@ -42,6 +42,7 @@
         Grant Permission
       </button>
       <div class="permission-msg">Please grant permission to proceed.</div>
+      <div id="distanceLabel" class="distance-label" aria-live="polite"></div>
     </div>
   </div>
   
@@ -298,13 +299,9 @@
               console.log('Current position:', currentLat, currentLng);
               console.log('Calculated distance:', distance);
               
-              // Format distance display
-              let distanceText = '';
-              if (distance < 1) {
-                distanceText = `${(distance * 1000).toFixed(0)}m away`;
-              } else {
-                distanceText = `${distance.toFixed(2)}km away`;
-              }
+              // Format distance display (always meters)
+              const distanceMeters = Math.round(distance * 1000);
+              const distanceText = `${distanceMeters}m away`;
               
               console.log('Distance text:', distanceText);
               
@@ -316,6 +313,12 @@
                 console.log('Updated distance element with:', distanceText);
               } else {
                 console.error('Distance element not found!');
+              }
+              
+              // Update on-screen label
+              const distanceLabel = document.querySelector('#distanceLabel');
+              if (distanceLabel) {
+                distanceLabel.textContent = distanceText;
               }
               
 
